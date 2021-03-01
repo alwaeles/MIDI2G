@@ -1,5 +1,8 @@
 package ovh.axelandre42.midi2g;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.message.FormattedMessage;
 import ovh.axelandre42.midi2g.geom.AxisAlignedBB;
 import ovh.axelandre42.midi2g.geom.AxisAlignedPlane;
 import ovh.axelandre42.midi2g.geom.Point;
@@ -9,6 +12,7 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 public class MovementMaker {
+	private static final Logger LOGGER = LogManager.getLogger(MovementMaker.class);
 	private static final double TOLERANCE = 0.001;
 
 	private final AxisAlignedBB printer;
@@ -27,7 +31,7 @@ public class MovementMaker {
 
 	public void process(Stream<NoteEvent> eventStream, int count) {
 		eventStream.forEach(noteEvent -> {
-			System.out.printf("Progress: %.2f%%%n", noteEvent.getIndex() * 100. / count);
+			LOGGER.debug(new FormattedMessage("Progress: %6.2f%%", noteEvent.getIndex() * 100. / count));
 			if (noteEvent.getDuration() * 60 < TOLERANCE) {
 				return;
 			}
