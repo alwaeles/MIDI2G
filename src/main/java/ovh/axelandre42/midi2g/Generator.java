@@ -163,7 +163,7 @@ public class Generator {
 		arguments.stream().map(o -> (File) o).forEach(file -> {
 			try {
 				Sequence midi = MidiSystem.getSequence(file);
-				MidiConsumer consumer = new MidiConsumer(midi, 80);
+				MidiConsumer consumer = new MidiConsumer(midi);
 				maker.process(consumer.stream(), consumer.getCount());
 			} catch (InvalidMidiDataException | IOException e) {
 				LOGGER.catching(e);
