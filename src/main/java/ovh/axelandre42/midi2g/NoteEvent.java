@@ -36,13 +36,13 @@ public class NoteEvent {
 		return duration;
 	}
 
-	public Point getFeed(Point stepsPerMM, Point microsteps, Point direction) {
+	public Point getFeed(Point stepsPerMM, Point microSteps, Point direction) {
 		double feedX = notes.length > 0 ?
-				noteToFrequency(notes[0]) * microsteps.getX() * 60 / stepsPerMM.getX() : 0;
+				noteToFrequency(notes[0]) * microSteps.getX() * 60 / stepsPerMM.getX() : 0;
 		double feedY = notes.length > 1 ?
-				noteToFrequency(notes[1]) * microsteps.getY() * 60 / stepsPerMM.getY() : 0;
+				noteToFrequency(notes[1]) * microSteps.getY() * 60 / stepsPerMM.getY() : 0;
 		double feedZ = notes.length > 2 ?
-				noteToFrequency(notes[2]) * microsteps.getZ() * 60 / stepsPerMM.getZ() : 0;
+				noteToFrequency(notes[2]) * microSteps.getZ() * 60 / stepsPerMM.getZ() : 0;
 
 		return new Point(
 				feedX * direction.getX(),
