@@ -1,0 +1,28 @@
+plugins {
+	id 'application'
+	id 'jacoco'
+}
+
+group 'ovh.axelandre42.midi2g'
+version '1.0-SNAPSHOT'
+
+application {
+	mainModule.set 'ovh.midi2g.main'
+	mainClass.set 'ovh.axelandre42.midi2g.Generator'
+}
+
+run {
+	workingDir 'run'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+}
