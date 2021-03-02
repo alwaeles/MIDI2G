@@ -47,7 +47,7 @@ public class GCodeOutput {
 	}
 
 	public void dwell(double seconds) {
-		printStream.printf(Locale.US, "G4 S%.2f%n", seconds);
+		printStream.printf(Locale.US, "G4 S%.3f%n", seconds);
 	}
 
 	public void close() {
